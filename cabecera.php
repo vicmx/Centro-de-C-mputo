@@ -1,6 +1,6 @@
 <?php
 
-include "coneccion.php";
+include "conexion.php";
 
 ?>
 <!doctype html>
