@@ -37,6 +37,8 @@ $result = $mysqli->query($sql);
         $row = $result2->fetch_row();
 
         echo $row[0] ."<br>";
+
+        $result2->close();
     }
 
     /* liberar el conjunto de resultados */
