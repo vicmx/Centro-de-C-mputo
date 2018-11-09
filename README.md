@@ -1,4 +1,4 @@
-# Centro-de-C-mputo
+# Centro-de-Cómputo
 Registro de usuarios
 
 
