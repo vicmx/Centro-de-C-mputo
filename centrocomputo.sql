@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `carreras` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_carrera` varchar(300) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `carreras`
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `consulta_alumnos` (
   `grupo` enum('A','B','U') NOT NULL,
   `sexo` enum('Masculino','Femenino') NOT NULL,
   PRIMARY KEY (`conid`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `consulta_alumnos`
