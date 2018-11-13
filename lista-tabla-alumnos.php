@@ -1,24 +1,7 @@
 <?php
 include "cabecera.php";
 global $mysqli;
-
-$mysqli = new mysqli('localhost', 'root', 'contraseña', 'registro_eesm');
-/*
-   * Esta es la forma OO "oficial" de hacerlo,
-   * AUNQUE $connect_error estaba averiado hasta PHP 5.2.9 y 5.3.0.
-*/
-if ($mysqli->connect_error) {
-	die('Error de Conexión (' . $mysqli->connect_errno . ') '
-	    . $mysqli->connect_error);
-}
-/*
-   * Use esto en lugar de $connect_error si necesita asegurarse
-   * de la compatibilidad con versiones de PHP anteriores a 5.2.9 y 5.3.0.
-*/
-if (mysqli_connect_error()) {
-	die('Error de Conexión (' . mysqli_connect_errno() . ') '
-	    . mysqli_connect_error());
-}
+//La conexión va 1 vez en la cabecera.php no es necesario agregarla aquí
 $sql ="select Matricula, Nombre, Hora_entrada, Hora_Salida carrera_id from alumnos ORDER BY Nombre DESC ";
 
 $result = $mysqli ->query($sql);
@@ -36,11 +19,8 @@ while($fila= $result ->fetch_row()){
 }
 /*liberar el conjunto de resultados*/
 $result->close();
-$result2->close();
+$result2->close();//liberar recurso de consulta dentro del while.
 
-echo 'Exito... ' . $mysqli->host_info . "\n";
-
-$mysqli ->close();
+//La conexión se cierra en el archivo pie.php
 include "pie.php";
-
 ?>
