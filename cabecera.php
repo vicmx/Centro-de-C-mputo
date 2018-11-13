@@ -1,7 +1,5 @@
 <?php
-
 include "conexion.php";
-
 ?>
 <!doctype html>
 <html lang="en">
