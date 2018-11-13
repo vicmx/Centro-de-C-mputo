@@ -1,5 +1,5 @@
 <?php
-include "cabecera.php";
+
 global $mysqli;
 //La conexión va 1 vez en la cabecera.php no es necesario agregarla aquí
 $sql ="select Matricula, Nombre, Hora_entrada, Hora_Salida carrera_id from alumnos ORDER BY Nombre DESC ";
