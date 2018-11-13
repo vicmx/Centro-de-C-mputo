@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-11-2018 a las 16:03:10
+-- Tiempo de generación: 12-11-2018 a las 21:21:49
 -- Versión del servidor: 5.5.61
--- Versión de PHP: 5.6.36
+-- Versión de PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `carreras`
 --
--- Creación: 12-11-2018 a las 20:24:50
+-- Creación: 13-11-2018 a las 03:20:46
 --
 
 DROP TABLE IF EXISTS `carreras`;
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `carreras` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_carrera` varchar(300) NOT NULL,
   PRIMARY KEY (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `carreras`
@@ -53,7 +53,7 @@ INSERT INTO `carreras` (`cid`, `nombre_carrera`) VALUES
 --
 -- Estructura de tabla para la tabla `consulta_alumnos`
 --
--- Creación: 12-11-2018 a las 20:24:51
+-- Creación: 13-11-2018 a las 03:20:47
 --
 
 DROP TABLE IF EXISTS `consulta_alumnos`;
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `consulta_alumnos` (
   `grupo` enum('A','B','U') NOT NULL,
   `sexo` enum('Masculino','Femenino') NOT NULL,
   PRIMARY KEY (`conid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `consulta_alumnos`
@@ -94,7 +94,7 @@ INSERT INTO `consulta_alumnos` (`conid`, `matricula`, `nombre`, `foto`, `carrera
 --
 -- Estructura de tabla para la tabla `registros`
 --
--- Creación: 12-11-2018 a las 20:24:50
+-- Creación: 13-11-2018 a las 03:20:47
 --
 
 DROP TABLE IF EXISTS `registros`;
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `observaciones` text NOT NULL,
   PRIMARY KEY (`regid`),
   KEY `carrera_id` (`carrera_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Nombre de tabla más lógico';
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
