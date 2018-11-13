@@ -3,21 +3,26 @@ Registro de usuarios
 
 
 Crear un sistema dinámico por medio de plantillas
-
-• Plantilla base HTML 5
-• Crear la parte superior como cabecera.php utilizando includes.
-• Creación de pie.php utilizando includes.
-• index.php donde se mostrará el contenido dinámico si fuera necesario.
+<ul>
+  <li>Plantilla base HTML 5</li>  
+  <li>Crear la parte superior como cabecera.php utilizando includes.</li>
+  <li>Creación de pie.php utilizando includes.</li>
+  <li>index.php donde se mostrará el contenido dinámico si fuera necesario.</li>
+</ul>
 
 Tareas a revisar:
-
-• Pantalla de login
-• Lista de alumnos
+<ul>
+  <li>Pantalla de login</li>
+  <li>Lista de alumnos</li>
+</ul>
 
 A realizar:
+<ul>
+  <li>Inserción de matriculas para probar el funcionamiento del sistema</li>
+  <li>Mostrar la lista de alumnos en una tabla para aplicar opciones.</li>
+</ul>
 
-• Inserción de matriculas para probar el funcionamiento del sistema
-• Mostrar la lista de alumnos en una tabla para aplicar opciones.
 
+<p><strong>Recuerden que los nombres de archivo van separados por guiones, no por espacios; ejemplo: mi-archivo.php</strong></p>
 
 
