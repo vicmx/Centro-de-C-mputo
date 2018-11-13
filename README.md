@@ -2,7 +2,7 @@
 Registro de usuarios
 
 
-Crear un sistema dinámico por medio de plantillas
+# Crear un sistema dinámico por medio de plantillas
 <ul>
   <li>Plantilla base HTML 5</li>  
   <li>Crear la parte superior como cabecera.php utilizando includes.</li>
