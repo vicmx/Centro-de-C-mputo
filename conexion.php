@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'registros_eesm');
+$mysqli = new mysqli('localhost', 'root', '', 'centrocomputo');
 
 /*
  * Esta es la forma OO "oficial" de hacerlo,
