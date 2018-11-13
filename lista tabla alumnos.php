@@ -2,7 +2,7 @@
 include "cabecera.php";
 global $mysqli;
 
-$mysqli = new mysqli('localhost', 'root', 'contra', 'registro_eesm');
+$mysqli = new mysqli('localhost', 'root', 'contraseña', 'registro_eesm');
 /*
    * Esta es la forma OO "oficial" de hacerlo,
    * AUNQUE $connect_error estaba averiado hasta PHP 5.2.9 y 5.3.0.
