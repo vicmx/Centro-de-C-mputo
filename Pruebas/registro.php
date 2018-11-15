@@ -1,5 +1,5 @@
 <?php
-$estatus="disabled";
+$estatus="enabled";
 $placeholder1="'Ingresar tu Matricula' ";
 $placeholder2="'Nombre del docente' ";
 $placeholder3="'Nombre de tu Asignatura' ";
@@ -38,10 +38,21 @@ if(isset($_POST['Mat'])){
             VALUES (NULL,'$Mat','$foto','$nombre','$IDcarrera','$carrera','$fecha_hora_actual','$fecha_hora_actual','$asunto','$profe','$materia','$observaciones')";
 
             if($consulta3=$conexion->query($query2)){
-              
-                header("Location:previa.php");
+                $mensaje="<div class='alert alert-success' role='alert'>
+                <h4 class='alert-heading'>Bienvenido al centro de computo!</h4>
+                <p>El registro de tu llegada a sido registrado correctamente... <br> favor de tomar asiento.</p>
+                <hr>                
+              </div>";
+              echo $mensaje;
+                header("refresh: 5; url=registro.php");
                 } else {
-                    echo "Error: " . $query2 . "<br>" . mysqli_error($conexion);
+                    $mensaje2="<div class='alert alert-success' role='alert'>
+                <h4 class='alert-heading'>Lo sentimos :( !</h4>
+                <p>El registro de tu llegada no a sido registrado correctamente... <br> favor de consultar al encargado del centro de cómputo.</p>
+                <hr>                
+              </div>";
+                    echo $mensaje2 . $query2 . "<br>" . mysqli_error($conexion);
+                    header("refresh: 5; url=registro.php");
                 }
             //header("Location:index.html");
     }else{
@@ -52,4 +63,5 @@ if(isset($_POST['Mat'])){
      
  
 require "vistas/registro.vista.php";
+     
      
