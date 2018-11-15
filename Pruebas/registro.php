@@ -4,6 +4,7 @@ $placeholder1="'Ingresar tu Matricula' ";
 $placeholder2="'Nombre del docente' ";
 $placeholder3="'Nombre de tu Asignatura' ";
 
+
 if(isset($_POST['Mat'])){
     $Mat=$_POST['Mat']; 
     $asunto=$_POST['asunto'];
@@ -15,7 +16,12 @@ if(isset($_POST['Mat'])){
     //      $placeholder1="'$Mat' ";
          
     //  }
-     
+    $mensaje2="<div class='alert alert-success' role='alert'>
+    <h4 class='alert-heading'>Lo sentimos :( !</h4>
+    <p>El registro de tu llegada no a sido registrado correctamente... <br> favor de consultar al encargado del centro de cómputo.</p>
+    <hr>                
+    </div>"; 
+
      require_once("Conexion.php");	
         $error='';
       
@@ -51,12 +57,13 @@ if(isset($_POST['Mat'])){
                 <p>El registro de tu llegada no a sido registrado correctamente... <br> favor de consultar al encargado del centro de cómputo.</p>
                 <hr>                
               </div>";
-                    echo $mensaje2 . $query2 . "<br>" . mysqli_error($conexion);
+                    echo $mensaje2 ;
                     header("refresh: 5; url=registro.php");
                 }
             //header("Location:index.html");
     }else{
-        $error.='<li>los datos no son correctos</li>';
+       echo $mensaje2;
+       header("refresh: 5; url=registro.php");
     }	
 } 
 
