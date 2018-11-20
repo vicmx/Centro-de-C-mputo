@@ -8,11 +8,11 @@ CREATE TABLE IF NOT EXISTS `contadores` (
   `aniodia` varchar(10) NOT NULL,
   `anio` varchar(5) NOT NULL,
   `mes` varchar(5) NOT NULL,
-  `Anfo` int(11) NOT NULL DEFAULT '0',
-  `Admon` int(11) NOT NULL DEFAULT '0',
-  `c_p` int(11) NOT NULL DEFAULT '0',
-  `MMD` int(11) NOT NULL DEFAULT '0',
-  `Der` int(11) NOT NULL DEFAULT '0',
+  `Info` int(1) NOT NULL DEFAULT '0',
+  `Admon` int(2) NOT NULL DEFAULT '0',
+  `c_p` int(3) NOT NULL DEFAULT '0',
+  `MMD` int(4) NOT NULL DEFAULT '0',
+  `Der` int(5) NOT NULL DEFAULT '0',
   PRIMARY KEY (`cid`),
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='tabla contadores para estadísticas';
 COMMIT;
