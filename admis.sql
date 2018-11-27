@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `admis` (
   `aid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `email` varchar(50) NOT NULL,
   PRIMARY KEY (`aid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
