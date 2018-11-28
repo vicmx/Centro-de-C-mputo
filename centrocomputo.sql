@@ -1,22 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 12-11-2018 a las 21:21:49
+-- Tiempo de generación: 28-11-2018 a las 10:15:39
 -- Versión del servidor: 5.5.61
--- Versión de PHP: 7.2.11
+-- Versión de PHP: 5.6.36
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `centrocomputo`
@@ -25,9 +19,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `carreras`
+-- Estructura de tabla para la tabla `admis`
 --
--- Creación: 13-11-2018 a las 03:20:46
+
+DROP TABLE IF EXISTS `admis`;
+CREATE TABLE IF NOT EXISTS `admis` (
+  `aid` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  PRIMARY KEY (`aid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carreras`
 --
 
 DROP TABLE IF EXISTS `carreras`;
@@ -52,8 +59,6 @@ INSERT INTO `carreras` (`cid`, `nombre_carrera`) VALUES
 
 --
 -- Estructura de tabla para la tabla `consulta_alumnos`
---
--- Creación: 13-11-2018 a las 03:20:47
 --
 
 DROP TABLE IF EXISTS `consulta_alumnos`;
@@ -92,9 +97,27 @@ INSERT INTO `consulta_alumnos` (`conid`, `matricula`, `nombre`, `foto`, `carrera
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `registros`
+-- Estructura de tabla para la tabla `contadores`
 --
--- Creación: 13-11-2018 a las 03:20:47
+
+DROP TABLE IF EXISTS `contadores`;
+CREATE TABLE IF NOT EXISTS `contadores` (
+  `cid` int(11) NOT NULL AUTO_INCREMENT,
+  `aniodia` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `anio` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mes` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Info` int(1) NOT NULL DEFAULT '0',
+  `Admon` int(2) NOT NULL DEFAULT '0',
+  `c_p` int(3) NOT NULL DEFAULT '0',
+  `MMD` int(4) NOT NULL DEFAULT '0',
+  `Der` int(5) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registros`
 --
 
 DROP TABLE IF EXISTS `registros`;
@@ -113,9 +136,5 @@ CREATE TABLE IF NOT EXISTS `registros` (
   `observaciones` text NOT NULL,
   PRIMARY KEY (`regid`),
   KEY `carrera_id` (`carrera_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Nombre de tabla más lógico';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
