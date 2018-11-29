@@ -1,7 +1,14 @@
+<?php 
+include "cabecera.php";
+?>
+
 <style type="text/css">
+.alert{
+    width: 40%;
+}
 .fondo{
     background-image: url("images/login.jpg");
-}	
+}
 </style>
 
 <!DOCTYPE html>
@@ -22,7 +29,7 @@
   </head>
 
 <body class="fondo">
-	<div class="col-sm-12 col-md-9 " center>
+	<div class="col-sm-12 col-md-9 ">
         <h1 class="display-4 with ">Login</h1>
             
 			<form class='mt-5' action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="formuser">
@@ -32,7 +39,7 @@
                     <div class="input-group-prepend">
                     <div class="input-group-text"><i class=" fa fa-user"></i></div>
                     </div>
-                    <input type="text" name="txtnick" class="form-control">
+                    <input type="text" name="txtuser" class="form-control">
                 </div>
                 </div> 
 
@@ -42,16 +49,42 @@
                     <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-unlock"></i></div>
                     </div>
-                    <input type="password" name="txtpass" class="form-control">
+                    <input type="password" name="txtpassword" class="form-control">
                 </div>
                 </div> 
 
-				<button type="submit" class="btn btn-outline-light" name="enviar-u">Buscar</button>
-
-				
+				<button type="submit" class="btn btn-outline-light mt-1 ml-3" name="enviar-u">Ingresar</button>
 
 			</form>
 	</div>
 
 </body>
 </html>
+<?php
+        if (isset($_POST['enviar-u'])) {
+            $consulta = "select username, password from admis where username = '".$_POST['txtuser']."'";
+            $resultado = $mysqli ->query($consulta);
+
+            while ($fila = mysqli_fetch_assoc($resultado)) {
+                $user_name = $fila['username'];
+                $user_pass = $fila['password'];
+            }
+            
+
+            if(isset($user_name)){
+                if(md5($_POST['txtpassword'])==$user_pass){
+                    session_start();
+                    $_SESSION['usuario'] = $user_name;
+                    header('location: administrador.php');
+                }else{
+                echo "<div class='alert alert-warning ml-4 mt-3' role='alert'>Contraseña incorrecta</div>";
+                }
+            }else{
+                echo "<div class='alert alert-danger ml-4 mt-3' role='alert'>Usuario no encontrado</div>"; 
+            }
+
+    }
+
+     
+   ?>
+
