@@ -1,4 +1,5 @@
 <?php
+
 $pagetitle="Tabla de alumnos";
 include "cabecera.php";
 //La conexión va 1 vez en la cabecera.php no es necesario agregarla aquí
@@ -32,36 +33,18 @@ $result = $mysqli ->query($sql);
 		
 <?php
 
+$estado="";
+
 while($fila= $result ->fetch_row()){
 
-
-
-/*
-	echo $fila[0]."<br>"  ;
-	echo $fila[1]."<br>"  ;
-	echo $fila[2]."<br>"  ;
-	echo $fila[3]."<br>"  ;
-	echo $fila[4]."<br>"  ;
-	echo $fila[5]."<br>"  ;
-	echo $fila[6]."<br>"  ;
-	echo $fila[7]."<br>"  ;
-	echo $fila[8]."<br>"  ;
-	obtener el array de objeto
-*//*
-	$sql2 ="UPDATE `registros` SET `hora_salida` = DATE(CURDATE()) WHERE `registros`.`regid` ='" . $mysqli ->real_escape_string( $fila[7] )."'";
-	$result2 = $mysqli->query($sql2);
-	$row =$result2->fetch_row();*/
-/*Creamos la condicional que evalua si el alumno esta avtivo o no*/	
-if ($fila[7]== "0000-00-00 00:00:00") {
+ 	 if ($fila[7]== "0000-00-00 00:00:00") {
 	/*si la fila 7 (hora de salida) esta completamente en ceros, el estado se marcara com inactivo*/
- $estado="Activo";
+ $estado= '<img src="inline.png" border="1" alt="Este es el ejemplo de un texto alternativo" width="20" height="20">';
 
 
-} else
+} else{
 /*Si no esta en ceros, el script avluara que ek usuario ya ha salido*/
- 	 $estado="inactivo";{
-
- 	 
+ 	 $estado= '<img src="offline.png" border="1" alt="Este es el ejemplo de un texto alternativo" width="20" height="20">';}
 
 	?>
 
@@ -79,8 +62,8 @@ if ($fila[7]== "0000-00-00 00:00:00") {
     <td><?php echo $fila[10]?></td>
         <td><?php echo $fila[11]?></td>
          <td><?php echo $estado?></td>
-    <td><input type="submit" name="cerrar-u" value="Cerrar Sesion"></td>
-
+   
+ <td><input type="submit" name="cerrar-u" value="Cerrar Sesion"></td>
 
 
     <?php
@@ -92,6 +75,27 @@ if ($fila[7]== "0000-00-00 00:00:00") {
 	
 <?php
 }
+
+/*
+	echo $fila[0]."<br>"  ;
+	echo $fila[1]."<br>"  ;
+	echo $fila[2]."<br>"  ;
+	echo $fila[3]."<br>"  ;
+	echo $fila[4]."<br>"  ;
+	echo $fila[5]."<br>"  ;
+	echo $fila[6]."<br>"  ;
+	echo $fila[7]."<br>"  ;
+	echo $fila[8]."<br>"  ;
+	obtener el array de objeto
+*//*
+	$sql2 ="UPDATE `registros` SET `hora_salida` = DATE(CURDATE()) WHERE `registros`.`regid` ='" . $mysqli ->real_escape_string( $fila[7] )."'";
+	$result2 = $mysqli->query($sql2);
+	$row =$result2->fetch_row();*/
+/*Creamos la condicional que evalua si el alumno esta avtivo o no*/	
+
+
+ 	 
+
 if (isset($_POST['cerrar-u'])) {
 	
 	$sql2 ="UPDATE `registros` SET `hora_salida` = DATE(CURDATE()) WHERE `registros`.`regid` ='" . $fila[0] ."'";
@@ -99,9 +103,10 @@ if (isset($_POST['cerrar-u'])) {
 	
 	
  	}
-}
+
 
 ?>
+
 </tr>
 </table>
 </form>
