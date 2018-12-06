@@ -1,8 +1,9 @@
 <?php 
 include "cabecera.php";
 session_start();
+error_reporting(0);
 
-if(!isset($_SESSION['usuario']) || $_SESSION['usuario']==null){
+if(!$_SESSION['logueado']){
 	echo "permiso denegado";
 	die();
 }
