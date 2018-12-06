@@ -75,6 +75,7 @@ include "cabecera.php";
                 if(md5($_POST['txtpassword'])==$user_pass){
                     session_start();
                     $_SESSION['usuario'] = $user_name;
+                    $_SESSION['logueado'] = true;
                     header('location: administrador.php');
                 }else{
                 echo "<div class='alert alert-warning ml-4 mt-3' role='alert'>Contraseña incorrecta</div>";
@@ -87,4 +88,3 @@ include "cabecera.php";
 
      
    ?>
-
