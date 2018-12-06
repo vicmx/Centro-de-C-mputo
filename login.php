@@ -7,8 +7,11 @@ include "cabecera.php";
     width: 40%;
 }
 .fondo{
-    background-image: url("images/login.jpg");
+   
+    background-color: #2AE2E0;
 }
+label{color: white;}
+
 </style>
 
 <!DOCTYPE html>
@@ -29,7 +32,7 @@ include "cabecera.php";
   </head>
 
 <body class="fondo">
-	<div class="col-sm-12 col-md-9 ">
+	<center><div class="col-sm-12 col-md-9 ">
         <h1 class="display-4 with ">Login</h1>
             
 			<form class='mt-5' action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="formuser">
@@ -56,7 +59,7 @@ include "cabecera.php";
 				<button type="submit" class="btn btn-outline-light mt-1 ml-3" name="enviar-u">Ingresar</button>
 
 			</form>
-	</div>
+	</div></center>
 
 </body>
 </html>
@@ -78,13 +81,16 @@ include "cabecera.php";
                     $_SESSION['logueado'] = true;
                     header('location: administrador.php');
                 }else{
-                echo "<div class='alert alert-warning ml-4 mt-3' role='alert'>Contraseña incorrecta</div>";
+                echo "<center><div class='alert alert-warning ml-4 mt-3' role='alert'>Contraseña incorrecta</div></center>";
                 }
             }else{
-                echo "<div class='alert alert-danger ml-4 mt-3' role='alert'>Usuario no encontrado</div>"; 
+                echo "<center><div class='alert alert-danger ml-4 mt-3' role='alert'>Usuario no encontrado</div></center>"; 
             }
 
     }
 
      
    ?>
+
+
+
